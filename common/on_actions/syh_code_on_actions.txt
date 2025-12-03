@@ -5,6 +5,7 @@
 		create_soviet_republics
 		create_soviet_bloc
 		reorganise_states
+		create_contrabolshevist_italy
 	}
 }
 
@@ -42,7 +43,14 @@ create_soviet_republics = {
 		c:HUN ?= { set_up_soviet_gov = yes }
 		c:UBD ?= { set_up_soviet_gov = yes }
 		c:FIN ?= { set_up_soviet_gov = yes }
-		c:GAL ?= { set_up_soviet_gov = yes }
+		c:KZH ?= { set_up_soviet_gov = yes }
+		c:OZH ?= { set_up_soviet_gov = yes }
+		c:UZH ?= { set_up_soviet_gov = yes }
+		c:KOK ?= { set_up_soviet_gov = yes }
+		c:BUK ?= { set_up_soviet_gov = yes }
+		c:KHI ?= { set_up_soviet_gov = yes }
+		c:CIR ?= { set_up_soviet_gov = yes }
+		c:CHC ?= { set_up_soviet_gov = yes }
 	}
 }
 
@@ -70,7 +78,35 @@ create_soviet_bloc = {
 				type = constituent_republic
 			}
 			create_diplomatic_pact = {
-				country = c:GAL
+				country = c:KZH
+				type = constituent_republic
+			}
+			create_diplomatic_pact = {
+				country = c:OZH
+				type = constituent_republic
+			}
+			create_diplomatic_pact = {
+				country = c:UZH
+				type = constituent_republic
+			}
+			create_diplomatic_pact = {
+				country = c:KOK
+				type = constituent_republic
+			}
+			create_diplomatic_pact = {
+				country = c:BUK
+				type = constituent_republic
+			}
+			create_diplomatic_pact = {
+				country = c:KHI
+				type = constituent_republic
+			}
+			create_diplomatic_pact = {
+				country = c:CIR
+				type = constituent_republic
+			}
+			create_diplomatic_pact = {
+				country = c:CHC
 				type = constituent_republic
 			}
 		}
@@ -97,3 +133,32 @@ reorganise_states = {
 		}
 	}
 }
+
+# create_contrabolshevist_italy = {
+# 	effect = {
+# 		s:STATE_LAZIO = {
+# 			every_state = {
+# 				save_scope_as = state_italy_capital
+# 			}
+# 		}
+# 		create_country = {
+# 			tag = ITA
+# 			origin = this
+# 			state = scope:state_italy_capital
+# 		}
+# 		every_state = {
+# 			limit = {
+# 				owner = {
+# 					OR = {
+# 						country_has_primary_culture = cu:north_italian
+# 						country_has_primary_culture = cu:south_italian
+# 					}
+# 				}
+# 			}
+# 			set_state_owner = c:ITA
+# 		}
+# 		c:ITA ?= {
+# 			set_up_fascist_gov = yes
+# 		}
+# 	}
+# }

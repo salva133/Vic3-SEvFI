@@ -110,10 +110,68 @@ give_corporatism = {
 		}
 		add_technology_researched = corporatism
 	}
-	if = {
-		limit = {
-			NOT = { has_technology_researched = corporatism }
-		}
-		add_technology_researched = corporatism
-	}
 }
+
+# set_up_fascist_gov = {
+# 	give_corporatism = yes
+# 	activate_law = law_type:law_corporate_state
+# 	if = {
+# 		limit = { NOT = { has_technology_researched = anarchism } }
+# 		add_technology_researched = anarchism
+# 	}
+# 	activate_law = law_type:law_single_party_state
+# 	activate_law = law_type:law_national_supremacy
+# 	activate_law = law_type:law_total_separation
+# 	activate_law = law_type:law_appointed_bureaucrats
+# 	if = {
+# 		limit = { NOT = { has_technology_researched = army_reserves } }
+# 		add_technology_researched = army_reserves
+# 	}
+# 	if = {
+# 		limit = { NOT = { has_technology_researched = artillery } }
+# 		add_technology_researched = artillery
+# 	}
+# 	if = {
+# 		limit = { NOT = { has_technology_researched = line_infantry } }
+# 		add_technology_researched = line_infantry
+# 	}
+# 	if = {
+# 		limit = { NOT = { has_technology_researched = napoleonic_warfare } }
+# 		add_technology_researched = napoleonic_warfare
+# 	}
+# 	if = {
+# 		limit = { NOT = { has_technology_researched = logistics } }
+# 		add_technology_researched = logistics
+# 	}
+# 	if = {
+# 		limit = { NOT = { has_technology_researched = enlistment_offices } }
+# 		add_technology_researched = enlistment_offices
+# 	}
+# 	activate_law = law_type:law_mass_conscription
+# 	if = {
+# 		limit = { NOT = { has_technology_researched = centralization } }
+# 		add_technology_researched = centralization
+# 	}
+# 	if = {
+# 		limit = { NOT = { has_technology_researched = central_archives } }
+# 		add_technology_researched = central_archives
+# 	}
+# 	activate_law = law_type:law_secret_police
+# 	activate_law = law_type:law_command_economy
+# 	activate_law = law_type:law_protectionism
+# 	activate_law = law_type:law_per_capita_based_taxation
+# 	activate_law = law_type:law_collectivized_agriculture
+# 	activate_law = law_type:law_militarized_police
+# 	activate_law = law_type:law_public_schools
+# 	activate_law = law_type:law_public_health_insurance
+# 	activate_law = law_type:law_outlawed_dissent
+# 	activate_law = law_type:law_poor_laws
+# 	activate_law = law_type:law_women_in_the_workplace
+# 	activate_law = law_type:law_corporatized_unions
+# 	every_scope_politician = {
+# 		limit = {
+# 			NOT = { has_ideology = ideology:ideology_fascist }
+# 		}
+# 		set_ideology = ideology:ideology_fascist
+# 	}
+# }
