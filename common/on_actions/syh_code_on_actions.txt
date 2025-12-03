@@ -134,31 +134,24 @@ reorganise_states = {
 	}
 }
 
-# create_contrabolshevist_italy = {
-# 	effect = {
-# 		s:STATE_LAZIO = {
-# 			every_state = {
-# 				save_scope_as = state_italy_capital
-# 			}
-# 		}
-# 		create_country = {
-# 			tag = ITA
-# 			origin = this
-# 			state = scope:state_italy_capital
-# 		}
-# 		every_state = {
-# 			limit = {
-# 				owner = {
-# 					OR = {
-# 						country_has_primary_culture = cu:north_italian
-# 						country_has_primary_culture = cu:south_italian
-# 					}
-# 				}
-# 			}
-# 			set_state_owner = c:ITA
-# 		}
-# 		c:ITA ?= {
-# 			set_up_fascist_gov = yes
-# 		}
-# 	}
-# }
+create_contrabolshevist_italy = {
+	effect = {
+		c:PAP ?= {
+			change_tag = c:ITA
+		}
+		every_state = {
+			limit = {
+				owner = {
+					OR = {
+						country_has_primary_culture = cu:north_italian
+						country_has_primary_culture = cu:south_italian
+					}
+				}
+			}
+			set_state_owner = c:ITA
+		}
+		c:ITA ?= {
+			set_up_fascist_gov = yes
+		}
+	}
+}
