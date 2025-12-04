@@ -6,6 +6,7 @@
 		create_soviet_bloc
 		reorganise_states
 		create_contrabolshevist_italy
+		set_up_balkans
 	}
 }
 
@@ -147,6 +148,67 @@ create_contrabolshevist_italy = {
 		}
 		c:ITA ?= {
 			set_up_fascist_gov = yes
+		}
+	}
+}
+
+set_up_balkans = {
+	effect = {
+		c:SER ?= {
+			make_independent = yes
+			change_tag = YUG
+		}
+		every_state = {
+			limit = {
+				is_homeland_of_country_cultures = c:YUG
+			}
+			set_state_owner = c:YUG
+		}
+		c:YUG ?= {
+			set_up_yugoslavian_gov = yes
+		}
+		s:STATE_BULGARIA = {
+			every_scope_state = {
+				save_scope_as = capital_state
+			}
+		}
+		create_country = {
+			tag = BUL
+			origin = c:YUG
+			state = scope:capital_state
+			on_created = {
+				set_up_yugoslavian_gov = yes
+			}
+		}
+		every_state = {
+			limit = {
+				is_homeland_of_country_cultures = c:BUL
+			}
+			set_state_owner = c:BUL
+		}
+		c:YUG = {
+			create_diplomatic_pact = {
+				country = c:BUL
+				type = constituent_republic
+			}
+		}
+		c:WAL ?= {
+			make_independent = yes
+			set_up_soviet_gov = yes
+		}
+		c:MOL ?= {
+			make_independent = yes
+			set_up_soviet_gov = yes
+		}
+		c:RUS ?= {
+			create_diplomatic_pact = {
+				country = c:WAL
+				type = constituent_republic
+			}
+			create_diplomatic_pact = {
+				country = c:MOL
+				type = constituent_republic
+			}
 		}
 	}
 }

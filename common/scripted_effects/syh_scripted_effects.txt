@@ -22,6 +22,30 @@
 	}
 }
 
+set_up_yugoslavian_gov = {
+	give_corporatism = yes
+	activate_law = law_type:law_council_republic
+	activate_law = law_type:law_single_party_state
+	activate_law = law_type:law_multicultural
+	activate_law = law_type:law_total_separation
+	activate_law = law_type:law_mass_conscription
+	activate_law = law_type:law_secret_police
+	activate_law = law_type:law_cooperative_ownership
+	activate_law = law_type:law_protectionism
+	activate_law = law_type:law_militarized_police
+	activate_law = law_type:law_homesteading
+	activate_law = law_type:law_outlawed_dissent
+	activate_law = law_type:law_womens_suffrage
+	activate_law = law_type:law_no_migration_controls
+	activate_law = law_type:law_corporatized_unions
+	every_scope_politician = {
+		limit = {
+			NOT = { has_ideology = ideology:ideology_communist }
+		}
+		set_ideology = ideology:ideology_communist
+	}
+}
+
 give_socialism = {
 	if = {
 		limit = {
