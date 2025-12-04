@@ -2,11 +2,13 @@
 	on_actions = {
 		socialism_for_the_world
 		create_soviet_union
-		create_soviet_republics
 		create_soviet_bloc
 		reorganise_states
 		create_contrabolshevist_italy
 		set_up_balkans
+		create_ukrainian_soviet_republic
+		create_white_russian_soviet_republic
+		create_polish_soviet_republic
 	}
 }
 
@@ -36,76 +38,71 @@ create_soviet_union = {
 	}
 }
 
-create_soviet_republics = {
-	effect = {
-		c:PRU ?= { change_tag = GER }
-		c:GER ?= { set_up_soviet_gov = yes }
-		c:AUS ?= { set_up_soviet_gov = yes }
-		c:HUN ?= { set_up_soviet_gov = yes }
-		c:UBD ?= { set_up_soviet_gov = yes }
-		c:FIN ?= { set_up_soviet_gov = yes }
-		c:KZH ?= { set_up_soviet_gov = yes }
-		c:OZH ?= { set_up_soviet_gov = yes }
-		c:UZH ?= { set_up_soviet_gov = yes }
-		c:KOK ?= { set_up_soviet_gov = yes }
-		c:BUK ?= { set_up_soviet_gov = yes }
-		c:KHI ?= { set_up_soviet_gov = yes }
-		c:CIR ?= { set_up_soviet_gov = yes }
-		c:CHC ?= { set_up_soviet_gov = yes }
-	}
-}
-
 create_soviet_bloc = {
 	effect = {
+		c:PRU ?= { change_tag = GER }
 		c:RUS ?= {
+			c:GER ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:GER
 				type = constituent_republic
 			}
+			c:AUS ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:AUS
 				type = constituent_republic
 			}
+			c:HUN ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:HUN
 				type = constituent_republic
 			}
+			c:UBD ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:UBD
 				type = constituent_republic
 			}
+			c:FIN ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:FIN
 				type = constituent_republic
 			}
+			c:KZH ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:KZH
 				type = constituent_republic
 			}
+			c:OZH ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:OZH
 				type = constituent_republic
 			}
+			c:UZH ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:UZH
 				type = constituent_republic
 			}
+			c:KOK ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:KOK
 				type = constituent_republic
 			}
+			c:BUK ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:BUK
 				type = constituent_republic
 			}
+			c:KHI ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:KHI
 				type = constituent_republic
 			}
+			c:CIR ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:CIR
 				type = constituent_republic
 			}
+			c:CHC ?= { set_up_soviet_gov = yes }
 			create_diplomatic_pact = {
 				country = c:CHC
 				type = constituent_republic
@@ -207,6 +204,96 @@ set_up_balkans = {
 			}
 			create_diplomatic_pact = {
 				country = c:MOL
+				type = constituent_republic
+			}
+		}
+	}
+}
+
+create_ukrainian_soviet_republic = {
+	effect = {
+		s:STATE_KIEV = {
+			every_scope_state = {
+				save_scope_as = capital_state
+			}
+		}
+		create_country = {
+			tag = UKR
+			origin = c:RUS
+			state = scope:capital_state
+			on_created = {
+				set_up_soviet_gov  = yes
+			}
+		}
+		every_state = {
+			limit = {
+				is_homeland_of_country_cultures = c:UKR
+			}
+			set_state_owner = c:UKR
+		}
+		c:RUS = {
+			create_diplomatic_pact = {
+				country = c:UKR
+				type = constituent_republic
+			}
+		}
+	}
+}
+
+create_white_russian_soviet_republic = {
+	effect = {
+		s:STATE_MINSK = {
+			every_scope_state = {
+				save_scope_as = capital_state
+			}
+		}
+		create_country = {
+			tag = BYE
+			origin = c:RUS
+			state = scope:capital_state
+			on_created = {
+				set_up_soviet_gov  = yes
+			}
+		}
+		every_state = {
+			limit = {
+				is_homeland_of_country_cultures = c:BYE
+			}
+			set_state_owner = c:BYE
+		}
+		c:RUS = {
+			create_diplomatic_pact = {
+				country = c:BYE
+				type = constituent_republic
+			}
+		}
+	}
+}
+
+create_polish_soviet_republic = {
+	effect = {
+		s:STATE_MINSK = {
+			every_scope_state = {
+				save_scope_as = capital_state
+			}
+		}
+		create_country = {
+			tag = POL
+			origin = c:RUS
+			state = scope:capital_state
+			on_created = {
+				set_up_soviet_gov  = yes
+			}
+		}
+		every_state = {
+			limit = {
+				is_homeland_of_country_cultures = c:POL
+			}
+			set_state_owner = c:POL
+		}
+		c:RUS = {
+			create_diplomatic_pact = {
+				country = c:POL
 				type = constituent_republic
 			}
 		}
