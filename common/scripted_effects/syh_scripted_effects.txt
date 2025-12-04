@@ -14,6 +14,7 @@
 	activate_law = law_type:law_womens_suffrage
 	activate_law = law_type:law_no_migration_controls
 	activate_law = law_type:law_corporatized_unions
+	activate_law = law_type:law_slavery_banned
 	every_scope_politician = {
 		limit = {
 			NOT = { has_ideology = ideology:ideology_communist }
