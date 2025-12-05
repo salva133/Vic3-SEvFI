@@ -1,0 +1,423 @@
+﻿socialism_for_the_world = {
+	every_country = {
+		limit = {
+			NOT = { is_country_type = decentralized }
+		}
+	}
+	give_socialism = yes
+}
+
+create_soviet_union = {
+	c:RUS ?= {
+		set_up_soviet_gov = yes
+		create_power_bloc = {
+			name = eastern_bloc
+			map_color = { 200 0 0 }
+			founding_date = 1800.1.1
+			identity = identity_ideological_union
+			principle = principle_creative_legislature_1
+		}
+	}
+}
+
+create_soviet_bloc = {
+	c:PRU ?= { change_tag = NGF }
+	c:BAV ?= { change_tag = SGF }
+	c:RUS ?= {
+		c:NGF ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:NGF
+			type = constituent_republic
+		}
+		c:SGF ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:SGF
+			type = constituent_republic
+		}
+		c:AUS ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:AUS
+			type = constituent_republic
+		}
+		c:HUN ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:HUN
+			type = constituent_republic
+		}
+		c:UBD ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:UBD
+			type = constituent_republic
+		}
+		c:FIN ?= { make_independent = yes }
+		c:KZH ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:KZH
+			type = constituent_republic
+		}
+		c:OZH ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:OZH
+			type = constituent_republic
+		}
+		c:UZH ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:UZH
+			type = constituent_republic
+		}
+		c:KOK ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:KOK
+			type = constituent_republic
+		}
+		c:BUK ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:BUK
+			type = constituent_republic
+		}
+		c:KHI ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:KHI
+			type = constituent_republic
+		}
+		c:CIR ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:CIR
+			type = constituent_republic
+		}
+		c:CHC ?= { set_up_soviet_gov = yes }
+		create_diplomatic_pact = {
+			country = c:CHC
+			type = constituent_republic
+		}
+	}
+}
+
+organise_german_states = {
+	c:PRU ?= {
+		capital = {
+			save_scope_as = capital_state
+		}
+	}
+	create_country = {
+		tag = NGF
+		origin = c:PRU
+		state = scope:capital_state
+		on_created = {
+			set_up_soviet_gov = yes
+		}
+	}
+	every_state = {
+		limit = {
+			owner = {
+				country_has_primary_culture = cu:north_german
+			}
+		}
+		if = {
+			limit = { owner = { is_player = yes } }
+			play_as = c:NGF
+		}
+		set_state_owner = c:NGF
+	}
+	c:BAV = {
+		capital = {
+			save_scope_as = capital_state
+		}
+	}
+	create_country = {
+		tag = SGF
+		origin = c:BAV
+		state = scope:capital_state
+		on_created = {
+			set_up_soviet_gov = yes
+		}
+	}
+	every_state = {
+		limit = {
+			owner = {
+				NOT = { c:AUS ?= this }
+				country_has_primary_culture = cu:south_german
+			}
+		}
+		if = {
+			limit = { owner = { is_player = yes } }
+			play_as = c:SGF
+		}
+		set_state_owner = c:SGF
+	}
+}
+
+create_contrabolshevist_italy = {
+	c:PAP ?= {
+		capital = {
+			save_scope_as = capital_state
+		}
+	}
+	create_country = {
+		tag = ITA
+		origin = this
+		state = scope:capital_state
+		on_created = {
+			set_up_fascist_gov = yes
+		}
+	}
+	every_state = {
+		limit = {
+			NOT = { owner = c:ITA }
+			is_homeland_of_country_cultures = c:ITA
+		}
+		if = {
+			limit = { owner = { is_player = yes } }
+			play_as = c:ITA
+		}
+		set_state_owner = c:ITA
+	}
+}
+
+create_yugoslavian_federation = {
+	c:SER ?= {
+		capital = {
+			save_scope_as = capital_state
+		}
+	}
+	create_country = {
+		tag = YUG
+		origin = this
+		state = scope:capital_state
+	}
+	every_state = {
+		limit = {
+			is_homeland_of_country_cultures = c:YUG
+		}
+		if = {
+			limit = { owner = { is_player = yes } }
+			play_as = c:YUG
+		}
+		set_state_owner = c:YUG
+	}
+	c:YUG ?= {
+		set_up_soft_commie_gov = yes
+	}
+	s:STATE_BULGARIA = {
+		every_scope_state = {
+			save_scope_as = capital_state
+		}
+	}
+	create_country = {
+		tag = BUL
+		origin = c:YUG
+		state = scope:capital_state
+		on_created = {
+			set_up_soft_commie_gov = yes
+		}
+	}
+	every_state = {
+		limit = {
+			is_homeland_of_country_cultures = c:BUL
+		}
+		if = {
+			limit = { owner = { is_player = yes } }
+			play_as = c:BUL
+		}
+		set_state_owner = c:BUL
+	}
+	c:YUG ?= {
+		create_diplomatic_pact = {
+			country = c:BUL
+			type = constituent_republic
+		}
+	}
+}
+
+create_romanian_soviet_republic = {
+	c:WAL ?= {
+		make_independent = yes
+		set_up_soviet_gov = yes
+		change_tag = ROM
+	}
+	every_state = {
+		limit = {
+			is_homeland_of_country_cultures = c:ROM
+		}
+		if = {
+			limit = { owner = { is_player = yes } }
+			play_as = c:ROM
+		}
+		set_state_owner = c:ROM
+	}
+	c:RUS ?= {
+		create_diplomatic_pact = {
+			country = c:ROM
+			type = constituent_republic
+		}
+	}
+}
+
+create_white_russian_soviet_republic = {
+	s:STATE_MINSK = {
+		every_scope_state = {
+			save_scope_as = capital_state
+		}
+	}
+	create_country = {
+		tag = BYE
+		origin = c:RUS
+		state = scope:capital_state
+		on_created = {
+			set_up_soviet_gov  = yes
+		}
+	}
+	every_state = {
+		limit = {
+			is_homeland_of_country_cultures = c:BYE
+		}
+		set_state_owner = c:BYE
+	}
+	c:RUS ?= {
+		create_diplomatic_pact = {
+			country = c:BYE
+			type = constituent_republic
+		}
+	}
+}
+
+create_polish_soviet_republic = {
+	s:STATE_GREATER_POLAND = {
+		every_scope_state = {
+			save_scope_as = capital_state
+		}
+	}
+	create_country = {
+		tag = POL
+		origin = c:RUS
+		state = scope:capital_state
+		on_created = {
+			set_up_soviet_gov  = yes
+		}
+	}
+	every_state = {
+		limit = {
+			is_homeland_of_country_cultures = c:POL
+		}
+		set_state_owner = c:POL
+	}
+	c:RUS ?= {
+		create_diplomatic_pact = {
+			country = c:POL
+			type = constituent_republic
+		}
+	}
+}
+
+create_ukrainian_soviet_republic = {
+	s:STATE_KIEV = {
+		every_scope_state = {
+			save_scope_as = capital_state
+		}
+	}
+	create_country = {
+		tag = UKR
+		origin = c:RUS
+		state = scope:capital_state
+		on_created = {
+			set_up_soviet_gov  = yes
+		}
+	}
+	every_state = {
+		limit = {
+			is_homeland_of_country_cultures = c:UKR
+		}
+		set_state_owner = c:UKR
+	}
+	c:RUS ?= {
+		create_diplomatic_pact = {
+			country = c:UKR
+			type = constituent_republic
+		}
+	}
+	s:STATE_CRIMEA.region_state:UKR = {
+		set_state_owner = c:RUS
+	}
+	s:STATE_BUKOVINA.region_state:UKR = {
+		set_state_owner = c:ROM
+	}
+}
+
+create_czech_soviet_republic = {
+	s:STATE_BOHEMIA = {
+		every_scope_state = {
+			save_scope_as = capital_state
+		}
+	}
+	create_country = {
+		tag = BOH
+		origin = c:RUS
+		state = scope:capital_state
+		on_created = {
+			set_up_soviet_gov  = yes
+		}
+	}
+	every_state = {
+		limit = {
+			is_homeland_of_country_cultures = c:BOH
+		}
+		set_state_owner = c:BOH
+	}
+	c:RUS ?= {
+		create_diplomatic_pact = {
+			country = c:BOH
+			type = constituent_republic
+		}
+	}
+}
+
+create_slovak_soviet_republic = {
+	s:STATE_SLOVAKIA = {
+		every_scope_state = {
+			save_scope_as = capital_state
+		}
+	}
+	create_country = {
+		tag = SLV
+		origin = c:RUS
+		state = scope:capital_state
+		on_created = {
+			set_up_soviet_gov  = yes
+		}
+	}
+	every_state = {
+		limit = {
+			is_homeland_of_country_cultures = c:SLV
+		}
+		set_state_owner = c:SLV
+	}
+	c:RUS ?= {
+		create_diplomatic_pact = {
+			country = c:SLV
+			type = constituent_republic
+		}
+	}
+}
+
+organise_southern_balkan = {
+	s:STATE_THESSALIA = {
+		every_scope_state = {
+			set_state_owner = c:GRE
+		}
+	}
+	s:STATE_MACEDONIA = {
+		every_scope_state = {
+			set_state_owner = c:GRE
+		}
+	}
+	s:STATE_ALBANIA = {
+		every_scope_state = {
+			save_scope_as = capital_state
+		}
+	}
+	create_country = {
+		tag = ALB
+		origin = c:YUG
+		state = scope:capital_state
+	}
+}
