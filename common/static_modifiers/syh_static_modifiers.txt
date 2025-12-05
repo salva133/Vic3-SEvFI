@@ -1,0 +1,11 @@
+﻿modifier_strong_fascist_bias = {
+	icon = gfx/interface/icons/ideology_icons/ideology_leader/ideology_leader_fascist.dds
+
+	state_pop_support_movement_fascist_add = 1000
+}
+
+modifier_strong_communist_bias = {
+	icon = gfx/interface/icons/ideology_icons/communist.dds
+
+	state_pop_support_movement_communist_add = 1000
+}

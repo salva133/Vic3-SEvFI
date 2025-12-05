@@ -21,6 +21,13 @@
 		}
 		set_ideology = ideology:ideology_communist
 	}
+	every_scope_state = {
+		add_modifier = {
+			name = modifier_strong_communist_bias
+			years = 100
+			is_decaying = yes
+		}
+	}
 }
 
 set_up_soft_commie_gov = {
@@ -198,5 +205,12 @@ set_up_fascist_gov = {
 			NOT = { has_ideology = ideology:ideology_fascist }
 		}
 		set_ideology = ideology:ideology_fascist
+	}
+	every_scope_state = {
+		add_modifier = {
+			name = modifier_strong_fascist_bias
+			years = 100
+			is_decaying = yes
+		}
 	}
 }
