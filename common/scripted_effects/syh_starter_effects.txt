@@ -8,10 +8,6 @@
 }
 
 create_soviet_bloc = {
-	c:PRU ?= { change_tag = NGF }
-	c:BAV ?= { change_tag = SGF }
-	c:NGF ?= { set_up_soviet_gov = yes }
-	c:SGF ?= { set_up_soviet_gov = yes }
 	c:AUS ?= { set_up_soviet_gov = yes }
 	c:HUN ?= { set_up_soviet_gov = yes }
 	c:UBD ?= { set_up_soviet_gov = yes }
@@ -85,6 +81,7 @@ create_soviet_bloc = {
 }
 
 organise_german_states = {
+	# NGF
 	c:PRU ?= {
 		capital = { save_scope_as = capital_state }
 	}
@@ -96,19 +93,22 @@ organise_german_states = {
 			set_up_soviet_gov = yes
 		}
 	}
+	random_country = {
+		limit = {
+			is_player = yes
+			country_has_primary_culture = cu:north_german
+		}
+		play_as = c:NGF
+	}
 	every_state = {
 		limit = {
 			owner = {
-				NOT = { owner = c:NGF }
 				country_has_primary_culture = cu:north_german
 			}
 		}
-		if = {
-			limit = { owner = { is_player = yes } }
-			play_as = c:NGF
-		}
 		set_state_owner = c:NGF
 	}
+	# SGF
 	c:BAV ?= {
 		capital = { save_scope_as = capital_state }
 	}
@@ -120,6 +120,14 @@ organise_german_states = {
 			set_up_soviet_gov = yes
 		}
 	}
+	random_country = {
+		limit = {
+			is_player = yes
+			NOT = { c:AUS ?= this }
+			country_has_primary_culture = cu:south_german		
+		}
+		play_as = c:SGF
+	}
 	every_state = {
 		limit = {
 			owner = {
@@ -127,12 +135,10 @@ organise_german_states = {
 				country_has_primary_culture = cu:south_german
 			}
 		}
-		if = {
-			limit = { owner = { is_player = yes } }
-			play_as = c:SGF
-		}
 		set_state_owner = c:SGF
 	}
+
+	# ESU PB
 	if = {
 		limit = { has_global_variable = made_esu_globvar }
 		c:NGF ?= {
@@ -460,6 +466,9 @@ organise_southern_balkan = {
 		tag = ALB
 		origin = c:YUG
 		state = scope:capital_state
+		on_created = {
+			set_up_soft_commie_gov = yes
+		}
 	}
 }
 
