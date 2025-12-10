@@ -491,11 +491,9 @@ create_pb_esu = {
 				map_color = { 200 0 0 }
 				founding_date = 1836.1.1
 				identity = identity_ideological_union
-				principle = principle_ideological_truth_1
+				principle = principle_ideological_truth_3
 
 				member = c:SGF
-				member = c:AUS
-				member = c:HUN
 				member = c:UBD
 				member = c:YUG
 				member = c:BYE
@@ -505,6 +503,15 @@ create_pb_esu = {
 				member = c:SLV
 				member = c:ALB
 				member = c:LIT
+				member = c:ROM
+			}
+			create_diplomatic_pact = {
+				country = c:AUS
+				type = constituent_republic
+			}
+			create_diplomatic_pact = {
+				country = c:HUN
+				type = constituent_republic
 			}
 		}
 	}
