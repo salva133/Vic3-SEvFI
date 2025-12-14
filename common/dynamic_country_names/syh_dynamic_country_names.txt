@@ -4,7 +4,7 @@
 		adjective = root_adj
 
 		is_main_tag_only = yes
-		priority = 6
+		priority = 5
 
 		trigger = {
 			scope:actor ?= {
@@ -59,7 +59,7 @@ INJECT:ITA = { # Italy
 		adjective = ITA_ADJ
 
 		is_main_tag_only = yes
-		priority = 10
+		priority = 5
 
 		trigger = {
 			scope:actor ?= {
