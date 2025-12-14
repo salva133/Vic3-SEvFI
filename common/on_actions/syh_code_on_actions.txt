@@ -30,6 +30,19 @@ on_game_started_syh_init = {
 	}
 }
 
+on_monthly_pulse_country = {
+	on_actions = {
+		on_monthly_pulse_country_puppet_management
+	}
+}
+
+on_monthly_pulse_country_puppet_management = {
+	random_events = {
+		90 = 0
+		10 = puppet_management.1
+	}
+}
+
 on_yearly_pulse_state = {
 	on_actions = {
 		on_yearly_pulse_state_modifier_adaption
