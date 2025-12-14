@@ -29,3 +29,17 @@ on_game_started_syh_init = {
 		}
 	}
 }
+
+on_yearly_pulse_state = {
+	on_actions = {
+		on_yearly_pulse_state_modifier_adaption
+	}
+}
+
+on_yearly_pulse_state_modifier_adaption = {
+	random_events = {
+		90 = 0
+		5 = modifier_adaption.1
+		5 = modifier_adaption.2
+	}
+}
