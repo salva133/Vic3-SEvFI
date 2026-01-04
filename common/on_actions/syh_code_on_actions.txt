@@ -45,14 +45,14 @@ on_monthly_pulse_country_puppet_management = {
 
 on_yearly_pulse_state = {
 	on_actions = {
-		on_yearly_pulse_state_modifier_adaption
+		on_yearly_pulse_state_modifier_management
 	}
 }
 
-on_yearly_pulse_state_modifier_adaption = {
+on_yearly_pulse_state_modifier_management = {
 	random_events = {
 		90 = 0
-		5 = modifier_adaption.1
-		5 = modifier_adaption.2
+		5 = modifier_management.1
+		5 = modifier_management.2
 	}
 }
