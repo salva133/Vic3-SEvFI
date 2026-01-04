@@ -61,29 +61,27 @@ puppet_management.2 = {
 	}
 
 	trigger = {
-		any_country = {
-			has_radical_leftist_government = no
-			is_subject = yes
-			is_in_power_bloc = yes
-			power_bloc ?= {
-				has_identity = identity:identity_ideological_union
-				has_principle = principle:principle_ideological_truth_3
-			}
-			overlord ?=  { has_radical_leftist_government = yes }
+		has_radical_leftist_government = no
+		is_subject = yes
+		is_in_power_bloc = yes
+		power_bloc ?= {
+			has_identity = identity:identity_ideological_union
+			has_principle = principle:principle_ideological_truth_3
 		}
+		overlord ?=  { has_radical_leftist_government = yes }
 	}
 
 	immediate = {
 		overlord.capital = { save_scope_as = overlord_capital }
 		root = { save_scope_as = puppet }
 	}
-	
+
 	option = {
 		name = puppet_management.2.a
 		default_option = yes
 
 		activate_law = law_type:law_council_republic
-		overlord ?= { 
+		overlord = { 
 			regime_change = scope:puppet
 			hidden_effect = {
 				create_diplomatic_pact = {
