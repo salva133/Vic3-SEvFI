@@ -1,12 +1,12 @@
 {
-  "name" : "Steamy Heart",
-	"id" : "",
-  "version" : "0.0.2",
-  "supported_game_version" : "1.12.*",
-  "short_description" : "",
-  "tags" : [],
-  "relationships" : [],
-  "game_custom_data" : {
-    "multiplayer_synchronized" : true
+  "name": "Steamy Heart",
+  "id": "",
+  "version": "0.0.3",
+  "supported_game_version": "1.12.*",
+  "short_description": "",
+  "tags": [],
+  "relationships": [],
+  "game_custom_data": {
+    "multiplayer_synchronized": true
   }
 }
