@@ -1,11 +1,11 @@
 name: Update Steam Description from README
 
-on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'README.md'
+# on:
+#   push:
+#     branches:
+#       - master
+#     paths:
+#       - 'README.md'
 
   workflow_dispatch:
 
@@ -36,7 +36,7 @@ jobs:
               md = f.read().strip()
 
           if not md:
-              print("README.md ist leer – nichts zu tun.")
+              print("README.md ist leer - nichts zu tun.")
               exit(0)
 
           # Entferne Kommentare
@@ -123,7 +123,7 @@ jobs:
           git add steam_desc.txt || true
 
           if git diff --staged --quiet; then
-            echo "Keine Änderungen – nichts zu committen."
+            echo "Keine Änderungen - nichts zu committen."
           else
             git commit -m "ci: update steam_desc.txt from README.md (BBCode)"
             git push
