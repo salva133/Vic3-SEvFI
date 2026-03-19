@@ -1,0 +1,11 @@
+﻿name: Block Invalid Release Branches
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - master
+
+jobs:
+  block-invalid-release-pr:
+    uses: salva133/My-Workflows/.github/workflows/block-invalid-release-branches.yml@master
