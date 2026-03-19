@@ -1,11 +1,11 @@
-name: Update Steam Description from README
+name: Create steam_desc from README
 
-# on:
-#   push:
-#     branches:
-#       - master
-#     paths:
-#       - 'README.md'
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'README.md'
 
   workflow_dispatch:
 
@@ -18,12 +18,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -126,6 +126,7 @@ jobs:
             echo "Keine Änderungen - nichts zu committen."
           else
             git commit -m "ci: update steam_desc.txt from README.md (BBCode)"
+            git pull -r
             git push
           fi
         env:
