@@ -123,6 +123,7 @@ give_corporatism = {
 give_political_agitation = {
 	give_socialism = yes
 	give_corporatism = yes
+	make_pops_literate_40_percent = yes # Pops need to be able to comprehend this
 	if = {
 		limit = {
 			NOT = { has_technology_researched = anarchism }
@@ -259,6 +260,15 @@ TRY_INJECT:remove_subject_diplomatic_pact = {
 				country = root
 				type = constituent_republic
 			}
+		}
+	}
+}
+
+make_pops_literate_40_percent = {
+	every_scope_pop = {
+		limit = { literacy_rate < 0.4 }
+		set_pop_literacy = {
+			literacy_rate = 0.4
 		}
 	}
 }
