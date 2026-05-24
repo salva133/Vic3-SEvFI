@@ -262,58 +262,39 @@ create_romanian_soviet_republic = {
 	finalise_ussr_satellite = yes
 }
 
-create_white_russian_soviet_republic = {
-	s:STATE_MINSK = {
+# Macro helper: spawn a USSR-aligned soviet republic from a capital state.
+# Caller passes the capital state region key and the new country's tag; the
+# new country is created from c:RUS, gets the hard-commie government, and is
+# fed into finalise_ussr_satellite which handles state takeover and the
+# constituent_republic pact.
+create_ussr_satellite_republic = {
+	s:$CAPITAL$ = {
 		every_scope_state = {
 			save_scope_as = capital_state
 		}
 	}
 	create_country = {
-		tag = BYE
+		tag = $TAG$
 		origin = c:RUS
 		state = scope:capital_state
 		on_created = {
 			set_up_hard_commie_gov = yes
 		}
 	}
-	c:BYE ?= { save_scope_as = satellite }
+	c:$TAG$ ?= { save_scope_as = satellite }
 	finalise_ussr_satellite = yes
+}
+
+create_white_russian_soviet_republic = {
+	create_ussr_satellite_republic = { CAPITAL = STATE_MINSK TAG = BYE }
 }
 
 create_polish_soviet_republic = {
-	s:STATE_GREATER_POLAND = {
-		every_scope_state = {
-			save_scope_as = capital_state
-		}
-	}
-	create_country = {
-		tag = POL
-		origin = c:RUS
-		state = scope:capital_state
-		on_created = {
-			set_up_hard_commie_gov = yes
-		}
-	}
-	c:POL ?= { save_scope_as = satellite }
-	finalise_ussr_satellite = yes
+	create_ussr_satellite_republic = { CAPITAL = STATE_GREATER_POLAND TAG = POL }
 }
 
 create_ukrainian_soviet_republic = {
-	s:STATE_KIEV = {
-		every_scope_state = {
-			save_scope_as = capital_state
-		}
-	}
-	create_country = {
-		tag = UKR
-		origin = c:RUS
-		state = scope:capital_state
-		on_created = {
-			set_up_hard_commie_gov = yes
-		}
-	}
-	c:UKR ?= { save_scope_as = satellite }
-	finalise_ussr_satellite = yes
+	create_ussr_satellite_republic = { CAPITAL = STATE_KIEV TAG = UKR }
 	# Crimea and Bukovina are carved out of UKR in this scenario.
 	s:STATE_CRIMEA.region_state:UKR = {
 		set_state_owner = c:RUS
@@ -324,57 +305,15 @@ create_ukrainian_soviet_republic = {
 }
 
 create_czech_soviet_republic = {
-	s:STATE_BOHEMIA = {
-		every_scope_state = {
-			save_scope_as = capital_state
-		}
-	}
-	create_country = {
-		tag = BOH
-		origin = c:RUS
-		state = scope:capital_state
-		on_created = {
-			set_up_hard_commie_gov = yes
-		}
-	}
-	c:BOH ?= { save_scope_as = satellite }
-	finalise_ussr_satellite = yes
+	create_ussr_satellite_republic = { CAPITAL = STATE_BOHEMIA TAG = BOH }
 }
 
 create_slovak_soviet_republic = {
-	s:STATE_SLOVAKIA = {
-		every_scope_state = {
-			save_scope_as = capital_state
-		}
-	}
-	create_country = {
-		tag = SLV
-		origin = c:RUS
-		state = scope:capital_state
-		on_created = {
-			set_up_hard_commie_gov = yes
-		}
-	}
-	c:SLV ?= { save_scope_as = satellite }
-	finalise_ussr_satellite = yes
+	create_ussr_satellite_republic = { CAPITAL = STATE_SLOVAKIA TAG = SLV }
 }
 
 create_lithuanian_soviet_republic = {
-	s:STATE_KAUNAS = {
-		every_scope_state = {
-			save_scope_as = capital_state
-		}
-	}
-	create_country = {
-		tag = LIT
-		origin = c:RUS
-		state = scope:capital_state
-		on_created = {
-			set_up_hard_commie_gov = yes
-		}
-	}
-	c:LIT ?= { save_scope_as = satellite }
-	finalise_ussr_satellite = yes
+	create_ussr_satellite_republic = { CAPITAL = STATE_KAUNAS TAG = LIT }
 }
 
 create_socialist_albania = {
