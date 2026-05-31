@@ -16,7 +16,7 @@ The mod transforms the default 1836 setup into a Cold-War-style confrontation be
 
 - **Custom Government Type**  
   - **Ducist Regime** for Italy (titles: Duce / Ducessa).  
-  - Automatically applied when Italy adopts a fascist corporate-state government (if it works, this government type assignment system is screwing with me since forever).
+  - Automatically applied when Italy adopts a fascist corporate-state government.
 
 ### Power Blocs & Federations
 - **European Socialist Union (ESU)** – optional ideological super-bloc led by North German Federation.  
@@ -46,6 +46,7 @@ The mod transforms the default 1836 setup into a Cold-War-style confrontation be
     - Romania
     - Poland
     - Ukraine
+    - Belarus
     - Bohemia
     - Slovakia
     - Lithuania
