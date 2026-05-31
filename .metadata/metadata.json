@@ -4,7 +4,9 @@
   "version": "0.0.23",
   "supported_game_version": "1.13.*",
   "short_description": "Either the Soviet Union or the European Socialist Union exists at the start. Either way, this will unify Italy to the fascist Italian State.",
-  "tags": [],
+  "tags": [
+    "1.13"
+  ],
   "relationships": [],
   "game_custom_data": {
     "multiplayer_synchronized": true
