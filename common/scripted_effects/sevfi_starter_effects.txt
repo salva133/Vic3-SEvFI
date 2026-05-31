@@ -60,6 +60,7 @@ create_pb_esu = {
 					this = c:AUS  this = c:HUN  this = c:SGF
 					this = c:YUG  this = c:POL  this = c:BOH
 					this = c:SLV  this = c:LIT  this = c:ROM
+					this = c:UKR  this = c:BYE
 				}
 				NOT = { is_subject_of = c:NGF }
 			}
@@ -295,11 +296,12 @@ create_polish_soviet_republic = {
 
 create_ukrainian_soviet_republic = {
 	create_ussr_satellite_republic = { CAPITAL = STATE_KIEV TAG = UKR }
-	# Crimea and Bukovina are carved out of UKR in this scenario.
-	s:STATE_CRIMEA.region_state:UKR = {
+	# Crimea and Bukovina are carved out of UKR in this scenario, but only
+	# if UKR actually took those states (the ?= no-ops if it did not).
+	s:STATE_CRIMEA.region_state:UKR ?= {
 		set_state_owner = c:RUS
 	}
-	s:STATE_BUKOVINA.region_state:UKR = {
+	s:STATE_BUKOVINA.region_state:UKR ?= {
 		set_state_owner = c:ROM
 	}
 }
