@@ -11,9 +11,9 @@ on_game_started_sevfi_init = {
 				NOT = { has_game_rule = no_sevfi_content }
 			}
 			era_3_for_the_world = yes
-			create_soviet_bloc = yes
 			create_socialist_ngf = yes
 			create_socialist_sgf = yes
+			create_soviet_bloc = yes
 			create_contrabolshevist_italy = yes
 			create_yugoslavian_federation = yes
 			create_romanian_soviet_republic = yes
