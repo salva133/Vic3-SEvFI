@@ -1,4 +1,4 @@
-sevfi_constituent_broke_away_notif = {
+﻿sevfi_constituent_broke_away_notif = {
 	type = country
 	group = "diplomatic_notification_group"
 
