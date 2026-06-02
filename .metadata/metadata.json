@@ -7,7 +7,15 @@
   "tags": [
     "1.13"
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "rel_type": "dependency",
+      "id": "dsr",
+      "display_name": "DonSantanian Resources",
+      "resource_type": "mod",
+      "version": "0.*"
+    }
+  ],
   "game_custom_data": {
     "multiplayer_synchronized": true
   }
