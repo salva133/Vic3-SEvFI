@@ -26,6 +26,7 @@ set_up_socialist_gov = {
 	activate_law = law_type:law_slavery_banned
 	activate_law = law_type:law_corporatized_unions
 	make_all_politicians_communist = yes
+	make_all_igs_chose_communism = yes
 	give_all_states_strong_communist_bias = yes
 }
 
@@ -81,6 +82,7 @@ set_up_fascist_gov = {
 	}
 
 	make_all_politicians_fascist = yes
+	make_all_igs_chose_fascism = yes
 	give_all_states_strong_fascist_bias = yes
 }
 
@@ -145,6 +147,16 @@ make_all_politicians_communist = {
 	}
 }
 
+# Lock every interest group onto the communist path: this fires the vanilla
+# socialist movement's disband_trigger (it checks any IG for chose_communism)
+# and keeps IG leaders on their communist ideology instead of drifting, since
+# chose_* drops the leader weight of every off-path ideology to a tenth.
+make_all_igs_chose_communism = {
+	every_interest_group = {
+		set_variable = chose_communism
+	}
+}
+
 give_all_states_strong_fascist_bias = {
 	every_scope_state = {
 		limit = {
@@ -164,6 +176,15 @@ make_all_politicians_fascist = {
 			NOT = { has_ideology = ideology:ideology_fascist }
 		}
 		set_ideology = ideology:ideology_fascist
+	}
+}
+
+# Lock every interest group onto the fascist path so IG leaders keep their
+# fascist ideology instead of drifting: chose_fascism drops the leader weight
+# of every off-path ideology to a tenth, leaving fascist candidates favored.
+make_all_igs_chose_fascism = {
+	every_interest_group = {
+		set_variable = chose_fascism
 	}
 }
 
