@@ -1,0 +1,14 @@
+name: Sync Version To Localization
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.metadata/metadata.json'
+
+  workflow_dispatch:
+
+jobs:
+  sync-version-to-localization:
+    uses: salva133/My-Workflows/.github/workflows/sync-version-to-localization.yml@latest
